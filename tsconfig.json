@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2016",
-    "module": "commonjs",
+    "target": "esnext",
+    "module": "es2022",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "moduleResolution": "nodenext",
+    "noFallthroughCasesInSwitch": true,
+    "allowImportingTsExtensions": true
   },
   "include": ["src"]
 }
