@@ -22,6 +22,7 @@ class Lock {
     private readonly _slots: number[];
     private currentLocation: number = 50;
     public clicksAtZero = 0;
+    public clicksPastZero = 0;
 
     constructor() {
         this._slots = Array.from({ length: 100 }, (_, i) => i);
@@ -37,6 +38,10 @@ class Lock {
             }
             else if (this.outOfBoundsAtBottom()) {
                 this.currentLocation = this._slots.length -1;
+            }
+
+            if (this.currentLocation === 0) {
+                this.clicksPastZero ++;
             }
         }
 
@@ -65,5 +70,11 @@ export function solvePart1(input: string): number {
 }
 
 export function solvePart2(input: string): number {
-    return 1;
+    const instructions = parse(input);
+
+    return instructions.reduce((lock, currentValue) => {
+        lock.turn(currentValue.turns, currentValue.direction);
+        return lock;
+    }, new Lock())
+        .clicksPastZero
 }

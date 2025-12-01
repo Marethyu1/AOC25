@@ -8,12 +8,12 @@ async function load(filepath: string){
 
 load("../input.txt")
     .then(input => solvePart1(input))
-    .then(output => console.log(`part1: ${output}`))
+    .then(output => console.log(`part 1: ${output}`))
     .catch(console.error)
 
 
 load("../input.txt")
     .then(input => solvePart2(input))
-    .then(console.log)
+    .then(output => console.log(`part 2: ${output}`))
     .catch(console.error)
 
