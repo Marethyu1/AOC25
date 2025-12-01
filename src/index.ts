@@ -8,7 +8,7 @@ async function load(filepath: string){
 
 load("../input.txt")
     .then(input => solvePart1(input))
-    .then(console.log)
+    .then(output => console.log(`part1: ${output}`))
     .catch(console.error)
 
 
