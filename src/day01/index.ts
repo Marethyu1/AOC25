@@ -49,6 +49,7 @@ class Lock {
         if (this.currentLocation === 0) {
             this.clicksAtZero++;
         }
+        return this;
     }
 
     outOfBoundsAtTop = () => this.currentLocation > this._slots.length - 1;
@@ -61,20 +62,20 @@ class Lock {
 export function solvePart1(input: string): number {
     const instructions = parse(input);
 
-    return instructions.reduce((lock, currentValue) => {
-        lock.turn(currentValue.turns, currentValue.direction);
-        return lock;
-    }, new Lock())
-        .clicksAtZero
+    return instructions
+        .reduce(
+            (lock, currentValue) => lock.turn(currentValue.turns, currentValue.direction),
+            new Lock()
+        ).clicksAtZero
 
 }
 
 export function solvePart2(input: string): number {
     const instructions = parse(input);
 
-    return instructions.reduce((lock, currentValue) => {
-        lock.turn(currentValue.turns, currentValue.direction);
-        return lock;
-    }, new Lock())
-        .clicksPastZero
+    return instructions
+        .reduce(
+            (lock, currentValue) => lock.turn(currentValue.turns, currentValue.direction),
+            new Lock()
+        ).clicksPastZero
 }
