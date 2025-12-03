@@ -30,14 +30,14 @@ export function solvePart1(input: string): number {
             , 0);
 }
 
-const arr = Array.from({ length: 9 }, (_, i) => 9 - i);
-
 export const findHighestDigitForWidth = (battery: battery, remainingDigits = 11) => {
     let startDigit = battery[0];
     let index = 0;
-    const y = battery.slice(0, battery.length - remainingDigits);
-    for (let i = 0; i < y.length; i++) {
-        if (startDigit < battery[i]) {
+    const digitsCanLookOutWithoutRunningOut = battery.length - remainingDigits;
+
+    for (let i = 0; i < digitsCanLookOutWithoutRunningOut; i++) {
+        const currentDigit = battery[i];
+        if (currentDigit > startDigit) {
             startDigit  = battery[i];
             index = i;
         }
