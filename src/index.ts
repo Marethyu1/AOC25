@@ -1,5 +1,5 @@
 import {promises as fs} from "fs";
-import {solvePart1, solvePart2} from './day03/index.ts'
+import {solvePart1, solvePart2} from './day05/index.ts'
 
 async function load(filepath: string){
     return await fs.readFile(filepath, "utf8")
